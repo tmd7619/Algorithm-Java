@@ -19,23 +19,21 @@ public class Ex03 {
      * 단어를 답으로 합니다.
      *
      */
-//        public String solution(String in){
-//
-//            String anw = "";
-//
-//            String[] inArr = in.split(" ");
-//
-//            for(int i = 0; i < inArr.length -1 ; i ++){
-//                if (inArr[i].length() > inArr[i+1].length() ){
-//                    anw = inArr[i];
-//                } else if (inArr[i].length() == inArr[i+1].length()){
-//                    anw =
-//                }
-//
-//            }
-//
-//            return anw;
-//        }
+
+    public String solution2(String str){
+        String answer = "";
+        String[] strArr = str.split(" ");
+        int num = 0;
+        for(String a : strArr){
+            int checkNum = a.length();
+            if(checkNum > num){
+                num = checkNum;
+                answer = a;
+            }
+        }
+        return answer;
+    }
+
 
         // 강사 답안
         public String solution(String str){
@@ -59,9 +57,9 @@ public class Ex03 {
 
             Scanner in=new Scanner(System.in);
 
+            System.out.print("문자를 입력하시오 : ");
             String str = in.nextLine();
-
-            System.out.println(ex03.solution(str));
+            System.out.println(ex03.solution2(str));
 
             return ;
         }
