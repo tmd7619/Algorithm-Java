@@ -1,5 +1,6 @@
 package kr.ac.Chapter01;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ex04 {
@@ -16,28 +17,50 @@ public class Ex04 {
      *
      */
 
-    public void solution(int num){
-        String[] arr = new String[num];
-        Scanner sc = new Scanner(System.in);
-        for(int i = 0 ; i < num ; i ++){
-            System.out.print("문자열 입력 : ");
-             String str = sc.nextLine();
-             String reverse = "";
-             for (int j = str.length() - 1; j >= 0; j--) {
-                 reverse = reverse + str.charAt(j);
-             }
-            arr[i] = reverse;
+    public ArrayList<String> solution(int n , String[] str){
+        ArrayList<String> answer = new ArrayList<>();
+
+        for(String x :str){
+            String tmp = new StringBuilder(x).reverse().toString();
+            answer.add(tmp);
         }
-        for(String x : arr){
-            System.out.println(x);
-        }
+
+        return answer;
     }
 
+    public ArrayList<String> solution2(int n , String[] str){
+        ArrayList<String> answer = new ArrayList<>();
+
+        for(String x :str){
+            char[] s = x.toCharArray();
+            int lt = 0, rt = x.length()-1;
+            while(lt<rt){
+                char tmp = s[lt];
+                s[lt] = s[rt];
+                s[rt] = tmp;
+                lt ++;
+                rt --;
+            }
+            String tmp = String.valueOf(s); // valueOf는 static 메서드라 클래스.함수 접근 가능
+            answer.add(tmp);
+        }
+
+        return answer;
+    }
+
+
     public static void main(String[] args) {
+        Ex04 e = new Ex04();
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
-        Ex04 e = new Ex04();
-        e.solution(num);
+        String[] str = new String[num];
+        for(int i = 0; i<num ; i ++){
+            str[i] = sc.next();
+        }
+        for(String x :e.solution(num, str)){
+            System.out.println(x);
+        }
+
     }
 
 }
