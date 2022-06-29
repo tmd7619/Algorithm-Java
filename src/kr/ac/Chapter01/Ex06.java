@@ -16,7 +16,8 @@ public class Ex06 {
      * 출력
      * 첫 줄에 중복문자가 제거된 문자열을 출력합니다.
      *
-     *
+     *  String.indexOf(Char) : 문자열 내 'Char'번째 Index return (가장 맨 먼저 나오는)
+     *  String.charAt(Index) : 문자열 내 index 번째 글자 return
      *
      */
 
